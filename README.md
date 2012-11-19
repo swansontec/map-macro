@@ -118,4 +118,4 @@ Other interesting combinations include:
     5           3       157
     5           4       782
 
-Special thanks to [pfultz](https://github.com/pfultz2/Cloak/wiki/Is-the-C-preprocessor-Turing-complete%3F) for inventing the EVAL idea.
+Special thanks to [pfultz2](https://github.com/pfultz2/Cloak/wiki/Is-the-C-preprocessor-Turing-complete%3F) for inventing the EVAL idea.
