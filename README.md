@@ -61,16 +61,16 @@ Evaluating this macro does nothing, which ends the recursion.
 
 To actually select between the two macros, the following `MAP_NEXT`
 macro compares a single list item against the special end-of-list marker
-`()`. The macro returns `MAP_END` if the item matches, or the `next`
+`()`. The macro returns `MAP_END` if the test item matches, or the `next`
 parameter if the item is anything else:
 
     #define MAP_GET_END() 0, MAP_END
-    #define MAP_NEXT0(item, next, ...) next MAP_OUT
-    #define MAP_NEXT1(item, next) MAP_NEXT0 (item, next, 0)
-    #define MAP_NEXT(item, next)  MAP_NEXT1 (MAP_GET_END item, next)
+    #define MAP_NEXT0(test, next, ...) next MAP_OUT
+    #define MAP_NEXT1(test, next) MAP_NEXT0 (test, next, 0)
+    #define MAP_NEXT(test, next)  MAP_NEXT1 (MAP_GET_END test, next)
 
-This macro works by placing the item next to the `MAP_GET_END` macro. If
-doing that forms a macro call, everything moves over by a slot in the
+This macro works by placing the test item next to the `MAP_GET_END` macro.
+If doing that forms a macro call, everything moves over by a slot in the
 `MAP_NEXT0` parameter list, changing the output. The `MAP_OUT` trick
 prevents the preprocessor from evaluating the final result.
 
