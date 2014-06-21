@@ -40,7 +40,9 @@
 #define MAP_OUT
 #define MAP_COMMA ,
 
-#define MAP_GET_END() 0, MAP_END
+#define MAP_GET_END2() 0, MAP_END
+#define MAP_GET_END1(...) MAP_GET_END2
+#define MAP_GET_END(...) MAP_GET_END1
 #define MAP_NEXT0(test, next, ...) next MAP_OUT
 #define MAP_NEXT1(test, next) MAP_NEXT0 (test, next, 0)
 #define MAP_NEXT(test, next)  MAP_NEXT1 (MAP_GET_END test, next)
@@ -57,12 +59,12 @@
 /**
  * Applies the function macro `f` to each of the remaining parameters.
  */
-#define MAP(f, ...) EVAL (MAP1 (f, __VA_ARGS__, (), 0))
+#define MAP(f, ...) EVAL (MAP1 (f, __VA_ARGS__, ()()(), ()()(), ()()(), 0))
 
 /**
  * Applies the function macro `f` to each of the remaining parameters and
  * inserts commas between the results.
  */
-#define MAP_LIST(f, ...) EVAL (MAP_LIST1 (f, __VA_ARGS__, (), 0))
+#define MAP_LIST(f, ...) EVAL (MAP_LIST1 (f, __VA_ARGS__, ()()(), ()()(), ()()(), 0))
 
 #endif
