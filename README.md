@@ -133,3 +133,8 @@ Other interesting combinations include:
     5           4       782
 
 Special thanks to [pfultz2](https://github.com/pfultz2/Cloak/wiki/Is-the-C-preprocessor-Turing-complete%3F) for inventing the EVAL idea.
+
+## See Also
+
+C++ users may be intersted in the ['visit_struct' library](https://github.com/cbeck88/visit_struct),
+which uses a version of this macro to implement structure visitors in C++11.
