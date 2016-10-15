@@ -1,10 +1,24 @@
 # The Map Macro
 
+This repository implements a `MAP` macro, which can be used as follows:
+
+```c
+#define PRINT(a) printf(#a": %d", a); /* An example macro */
+MAP(PRINT, a, b, c) /* Apply PRINT to a, b, and c */
+```
+
+This macro came about in answer to a [Stack Overflow question.](http://stackoverflow.com/questions/6707148/foreach-macro-on-macros-arguments/13459454#13459454).
+The original answer can be found in the [`stackoverflow` branch](https://github.com/swansontec/map-macro/tree/stackoverflow).
+The `master` branch contains a few extra enhancements.
+Pull requests are welcome.
+
+## How it Works
+
 The goal is to create a macro which performs some operation each element of
 a list. Doing that requires recursion, though, which the C preprocessor
 doesn't allow. Fortunately, there is a workaround.
 
-## Basic Recursion
+### Basic Recursion
 
 First, we need a technique for emitting something that looks like a macro
 call, but isn't yet:
@@ -47,7 +61,7 @@ produce 365 copies of the word `blah`, followed by a final un-evaluated `B
 (blah)`. This provides the basic framework for recursion, at least within a
 certain stack depth.
 
-## End Detection
+### End Detection
 
 The next challenge is to stop the recursion when it reaches the end of the
 list.
@@ -74,7 +88,7 @@ If doing that forms a macro call, everything moves over by a slot in the
 `MAP_NEXT0` parameter list, changing the output. The `MAP_OUT` trick
 prevents the preprocessor from evaluating the final result.
 
-## Putting it All Together
+### Putting it All Together
 
 With these pieces in place, it is now possible to implement useful versions
 of the `A` and `B` macros from the example above:
@@ -94,7 +108,7 @@ This macro places a `()` marker on the end of the list, as well as an extra
 0-length list). It then passes the whole thing through `EVAL` and
 returns the result.
 
-## Evaluation Depth
+### Evaluation Depth
 
 Each level of the `EVAL` macro multiplies the effort of the previous
 level by 3, but also adds one evaluation of its own. Invoking the macro as a
