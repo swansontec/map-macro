@@ -147,6 +147,8 @@ MAP_LIST_UD(f,x,a,b,c) | f(a,x), f(b,x), f(c,x)
 MAP_UD_I(f,x,a,b,c) | f(a,x,0) f(b,x,1) f(c,x,2)
 MAP_LIST_UD_I(f,x,a,b,c) | f(a,x,0), f(b,x,1), f(c,x,2)
 
+The maximum number of variadic arguments for all macros is 365.
+
 ## See Also
 
 C++ users may be intersted in the ['visit_struct' library](https://github.com/cbeck88/visit_struct),
