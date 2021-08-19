@@ -134,7 +134,23 @@ Other interesting combinations include:
 
 Special thanks to [pfultz2](https://github.com/pfultz2/Cloak/wiki/Is-the-C-preprocessor-Turing-complete%3F) for inventing the EVAL idea.
 
+## Usage
+
+The [map.h](map.h) file defines several "map"-style macros for different use cases. The [example.c](example.c) file shows how to use them. A quick overview is:
+
+C-Code | Evaluates to
+-------| ------------
+MAP(f,a,b,c) | f(a) f(b) f(c)
+MAP_LIST(f,a,b,c) | f(a), f(b), f(c)
+MAP_UD(f,x,a,b,c) | f(a,x) f(b,x) f(c,x)
+MAP_LIST_UD(f,x,a,b,c) | f(a,x), f(b,x), f(c,x)
+MAP_UD_I(f,x,a,b,c) | f(a,x,0) f(b,x,1) f(c,x,2)
+MAP_LIST_UD_I(f,x,a,b,c) | f(a,x,0), f(b,x,1), f(c,x,2)
+
+The maximum number of variadic arguments for all macros is 365.
+
 ## See Also
 
 C++ users may be intersted in the ['visit_struct' library](https://github.com/cbeck88/visit_struct),
-which uses a version of this macro to implement structure visitors in C++11.
+which uses a version of this macro to implement structure visitors in C++11. The ['µSer' library](https://github.com/Erlkoenig90/uSer)
+uses another variant to define serializable structs in C++17.
