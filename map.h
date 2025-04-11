@@ -1,13 +1,8 @@
 /*
- * Created by William Swanson in 2012.
+ * map-macro by William R Swanson is marked with CC0 1.0 Universal.
  *
- * I, William Swanson, dedicate this work to the public domain.
- * I waive all rights to the work worldwide under copyright law,
- * including all related and neighboring rights,
- * to the extent allowed by law.
- *
- * You can copy, modify, distribute and perform the work,
- * even for commercial purposes, all without asking permission.
+ * To view a copy of this license,
+ * visit https://creativecommons.org/publicdomain/zero/1.0/
  */
 
 #ifndef MAP_H_INCLUDED
